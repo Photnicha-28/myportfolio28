@@ -1,59 +1,80 @@
+/* ==========================
+   GOOGLE FONT
+========================== */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Noto Sans Thai',sans-serif;
     scroll-behavior:smooth;
+    font-family:'Noto Sans Thai',sans-serif;
 }
 
 body{
-    background:#f5f3ef;
-    color:#333;
-    line-height:1.8;
+    background:#0f2d1f;
+    color:#fff;
+    line-height:1.7;
 }
 
+/* ==========================
+   BACKGROUND
+========================== */
 .bg{
     position:fixed;
-    inset:0;
-    background:linear-gradient(135deg,#f5f3ef,#e7dccb);
+    width:100%;
+    height:100%;
+    background:
+    radial-gradient(circle at top,#1d4d36,#0f2d1f 70%);
     z-index:-1;
 }
+
+/* ==========================
+   HEADER
+========================== */
 
 header{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
     padding:18px 8%;
-    background:rgba(255,255,255,.9);
+    background:rgba(0,0,0,.35);
     backdrop-filter:blur(10px);
-    box-shadow:0 2px 10px rgba(0,0,0,.08);
     z-index:999;
 }
 
 .logo{
-    font-size:24px;
+    font-size:28px;
     font-weight:bold;
-    color:#8b6b3f;
+    color:#d4af37;
+    letter-spacing:2px;
 }
 
 nav a{
-    margin-left:20px;
     text-decoration:none;
-    color:#444;
-    font-weight:500;
+    color:white;
+    margin-left:25px;
     transition:.3s;
 }
 
 nav a:hover{
-    color:#8b6b3f;
+    color:#d4af37;
 }
 
+/* ==========================
+   SECTION
+========================== */
+
 section{
-    padding:120px 10% 80px;
+    min-height:100vh;
+    padding:120px 8% 70px;
 }
+
+/* ==========================
+   HOME
+========================== */
 
 .hero{
     text-align:center;
@@ -62,104 +83,170 @@ section{
 .profile{
     width:220px;
     height:220px;
-    border-radius:50%;
     object-fit:cover;
-    border:6px solid white;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
+    border-radius:50%;
+    border:6px solid #d4af37;
+    box-shadow:0 0 35px rgba(212,175,55,.6);
+    margin-bottom:25px;
 }
 
 .hero h1{
-    margin-top:20px;
-    font-size:42px;
+    font-size:48px;
+    color:#d4af37;
 }
 
 .hero h2{
-    color:#8b6b3f;
-    margin-bottom:15px;
+    margin-top:8px;
+    color:#ffffff;
+}
+
+.hero p{
+    margin-top:20px;
+    font-size:20px;
 }
 
 .btn{
     display:inline-block;
-    margin-top:25px;
+    margin-top:30px;
     padding:12px 35px;
-    border-radius:30px;
-    background:#8b6b3f;
-    color:white;
+    background:#d4af37;
+    color:#173d2b;
     text-decoration:none;
+    border-radius:50px;
+    font-weight:bold;
     transition:.3s;
 }
 
 .btn:hover{
-    background:#6d542f;
+    background:white;
+    transform:translateY(-3px);
 }
 
+/* ==========================
+   TITLE
+========================== */
+
+section h1{
+    text-align:center;
+    color:#d4af37;
+    font-size:42px;
+    margin-bottom:45px;
+}
+
+/* ==========================
+   CARD
+========================== */
+
 .card{
-    margin-top:30px;
+    max-width:1100px;
+    margin:auto;
     display:flex;
     gap:40px;
-    background:white;
-    padding:35px;
+    align-items:center;
+    background:rgba(255,255,255,.08);
+    padding:40px;
     border-radius:20px;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
+    backdrop-filter:blur(10px);
 }
 
 .left img{
-    width:260px;
+    width:300px;
     border-radius:20px;
+    border:4px solid #d4af37;
 }
 
 .right{
     flex:1;
 }
 
-.right ul{
-    margin-left:20px;
-    margin-bottom:20px;
+.right h2{
+    color:#d4af37;
+    margin-bottom:15px;
 }
 
+.right p,
+.right li{
+    margin:8px 0;
+}
+
+.right ul{
+    margin-left:20px;
+}
+
+/* ==========================
+   TIMELINE
+========================== */
+
 .timeline{
-    display:grid;
-    gap:25px;
+    max-width:900px;
+    margin:auto;
 }
 
 .timeline-item{
-    background:white;
+    background:rgba(255,255,255,.08);
+    border-left:6px solid #d4af37;
     padding:25px;
-    border-left:6px solid #8b6b3f;
-    border-radius:15px;
-    box-shadow:0 8px 20px rgba(0,0,0,.08);
+    margin-bottom:25px;
+    border-radius:12px;
 }
+
+.timeline-item h2{
+    color:#d4af37;
+}
+
+/* ==========================
+   SOP
+========================== */
 
 .sop{
     display:block;
+    max-width:1000px;
 }
+
+.sop p{
+    text-align:justify;
+    line-height:2;
+}
+
+/* ==========================
+   GALLERY
+========================== */
 
 .gallery{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
+    gap:25px;
 }
 
 .gallery img{
     width:100%;
     border-radius:15px;
-    transition:.3s;
+    border:3px solid #d4af37;
+    transition:.4s;
     cursor:pointer;
-    box-shadow:0 8px 20px rgba(0,0,0,.12);
 }
 
 .gallery img:hover{
     transform:scale(1.05);
+    box-shadow:0 0 25px rgba(212,175,55,.8);
 }
 
+/* ==========================
+   CONTACT
+========================== */
+
 .contact-card{
-    max-width:600px;
+    max-width:700px;
     margin:auto;
-    background:white;
-    padding:35px;
+    background:rgba(255,255,255,.08);
+    padding:40px;
     border-radius:20px;
+}
+
+.contact-card h2{
     text-align:center;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    color:#d4af37;
+    margin-bottom:25px;
 }
 
 .contact-item{
@@ -168,25 +255,48 @@ section{
 }
 
 .contact-item a{
-    color:#8b6b3f;
+    color:#ffffff;
     text-decoration:none;
 }
 
+.contact-item a:hover{
+    color:#d4af37;
+}
+
+/* ==========================
+   FOOTER
+========================== */
+
 footer{
     text-align:center;
-    padding:35px;
-    background:#8b6b3f;
-    color:white;
+    padding:40px 20px;
+    background:#0b1f16;
 }
+
+footer h2{
+    color:#d4af37;
+    margin-bottom:10px;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
 
 @media(max-width:768px){
 
 header{
     flex-direction:column;
+    gap:15px;
 }
 
 nav{
-    margin-top:15px;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+nav a{
+    margin:8px;
 }
 
 .card{
@@ -195,10 +305,14 @@ nav{
 }
 
 .left img{
-    width:200px;
+    width:220px;
 }
 
 .hero h1{
+    font-size:35px;
+}
+
+section h1{
     font-size:32px;
 }
 
