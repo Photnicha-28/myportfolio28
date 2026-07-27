@@ -1,50 +1,93 @@
-// Fade in เมื่อเลื่อนหน้าจอ
+// ===========================
+// Portfolio Script
+// ===========================
 
+// เอฟเฟกต์ Fade In
 const sections = document.querySelectorAll("section");
 
-const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(entry=>{
-        if(entry.isIntersecting){
-            entry.target.style.opacity = "1";
-            entry.target.style.transform = "translateY(0)";
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
         }
     });
-},{
-    threshold:0.2
+}, {
+    threshold: 0.2
 });
 
-sections.forEach(section=>{
-    section.style.opacity = "0";
-    section.style.transform = "translateY(40px)";
-    section.style.transition = "all .8s ease";
+sections.forEach((section) => {
+    section.classList.add("hidden");
     observer.observe(section);
 });
 
 
-// Highlight เมนูปัจจุบัน
+// ===========================
+// Highlight เมนู
+// ===========================
 
 const navLinks = document.querySelectorAll("nav a");
 
-window.addEventListener("scroll",()=>{
+window.addEventListener("scroll", () => {
 
     let current = "";
 
-    sections.forEach(section=>{
-        const top = window.scrollY;
-        const offset = section.offsetTop - 150;
-        const height = section.offsetHeight;
+    sections.forEach((section) => {
 
-        if(top >= offset && top < offset + height){
+        const sectionTop = section.offsetTop - 150;
+        const sectionHeight = section.clientHeight;
+
+        if (pageYOffset >= sectionTop) {
             current = section.getAttribute("id");
         }
+
     });
 
-    navLinks.forEach(link=>{
+    navLinks.forEach((link) => {
+
         link.classList.remove("active");
 
-        if(link.getAttribute("href") === "#" + current){
+        if (link.getAttribute("href") === "#" + current) {
             link.classList.add("active");
         }
+
+    });
+
+});
+
+
+// ===========================
+// Smooth Scroll
+// ===========================
+
+document.querySelectorAll('nav a').forEach(anchor => {
+
+    anchor.addEventListener('click', function (e) {
+
+        e.preventDefault();
+
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: "smooth"
+        });
+
+    });
+
+});
+
+
+// ===========================
+// Hover รูปเกียรติบัตร
+// ===========================
+
+const certificates = document.querySelectorAll(".gallery img");
+
+certificates.forEach((img) => {
+
+    img.addEventListener("mouseover", () => {
+        img.style.transform = "scale(1.05)";
+    });
+
+    img.addEventListener("mouseout", () => {
+        img.style.transform = "scale(1)";
     });
 
 });
